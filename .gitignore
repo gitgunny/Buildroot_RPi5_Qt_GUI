@@ -1,11 +1,9 @@
 /output
 /dl
-buildroot-2025.11.tar.gz
 /.auto.deps
 /.config.cmd
 /.config.old
 /..config.tmp
-/.config
 *.depend
 *.o
 /*.patch
