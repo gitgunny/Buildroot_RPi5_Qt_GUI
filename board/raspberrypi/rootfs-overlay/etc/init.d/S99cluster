@@ -1,0 +1,29 @@
+#!/bin/sh
+
+case "$1" in
+  start)
+    echo "Starting Cluster App..."
+    # 필요한 환경 변수 설정
+    export LANG=ko_KR.UTF-8
+    # export QT_QPA_PLATFORM=eglfs
+    export QT_QPA_EGLFS_KMS_CONFIG=/etc/qt/kms.json
+    export QT_QPA_EGLFS_KMS_ATOMIC=1
+    
+    # 백그라운드(&)로 앱 실행
+    /root/ClusterTutorialApp &
+    ;;
+  stop)
+    echo "Stopping Cluster App..."
+    killall ClusterTutorialApp
+    ;;
+  restart)
+    $0 stop
+    sleep 1
+    $0 start
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|restart}"
+    exit 1
+esac
+
+exit 0
